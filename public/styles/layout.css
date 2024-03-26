@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: white;
+  background-image: url("../public/images/match-image.png");
 }
 
 div {
@@ -12,7 +15,8 @@ div {
 }
 
 .logo {
-padding: 20px;
+max-width: 100px;
+height: 70px;
 }
 
 .topnav {
@@ -22,11 +26,69 @@ color: white;
 font-family: 'Montserrat', Arial, sans-serif;
 justify-content: space-evenly;
 align-items: center;
-font-size: 20px;
-padding: 10px;
+font-size: 16px;
+font-weight: 700;
 }
 
 .topnav a {
 text-decoration: none;
 color: white;
+padding: 12px 20px;
+}
+
+.content {
+  background-color: #262626;
+  display: flex; 
+  flex-direction: column;
+  
+}
+
+.fixtures-container {
+  justify-content: space-around;
+  padding: 24px;
+  padding-bottom: 40px;
+}
+
+.match {
+  width: 300px;
+  height: 150px;
+  background-color: #373737;
+}
+
+.fixtures-title {
+  justify-content: center;
+}
+
+.news-content {
+  justify-content: center;
+}
+
+.latest {
+  background-color: red;
+  font-size: 20px;
+  transform: SkewX(-10deg);
+  padding: 25px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+span {
+  transform: SkewX(10deg);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+
+}
+
+.footer {
+  background-color: #E5E7EB;
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+}
+
+.copyright {
+  color: black;
 }
