@@ -20,13 +20,60 @@
   </div>
   </div>
 
-    <div>
-    <h1>Standings</h1>
-    <div class="table">
-        <tr>
-            1061 666
-        </tr>
+  <!--content-->
+  <div id="hero">
+		<h1>Current league standings</h1>
+	</div>	
+
+	<div id="display">
+
+		<div id="loader"> 
+			<h4> Loading</h4> 
+		</div>
+
+		<div id="table">
+		</div>
+		<div id="errorMessage"> 
+			<h2> Failed to get data. Please refresh </h2>
+		</div>
+
+    <!--footer-->
+
+    <div class="footer">
+      <div class='copyright'>Copyright © Conor Mciver 2024</div>
     </div>
-</div>
+
+    <!--Javascript standings-->
+
+    <script>
+
+//Making it easier to set funtions for this page
+
+      let tableElm = document.getElementById("table")
+	let loaderElm = document.getElementById("loader")
+	let errorMessageElm = document.getElementById("errorMessage")
+	
+function setErrorDisplay(){
+	loaderElm.style.display = "none"
+	allNamesElm.style.display = "none"
+	errorMessageElm.style.display = "block"
+	}
+
+  //API fetch insode google sheets
+
+      fetch("https://api.apispreadsheets.com/data/Bsj6stk5kC5II0vX/", {
+	method: "POST",
+	body: JSON.stringify({"data": {"D":"","L":"","P":"","W":"","GA":"","GD":"","GF":"","Pts":"","Team":"","Position":"1"}}),
+}).then(res =>{
+	if (res.status === 201){
+		// SUCCESS
+	}
+	else{
+		// ERROR
+	}
+})
+    </script>
+
+	</div>
 </body>
 </html>
