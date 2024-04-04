@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -161,25 +162,58 @@ a.button:hover {
   font-size: 16px;
 }
 
-#allNames {
-  display: none;
-}
-#errorMessage {
-  display: none;
-  color: red;
+#display {
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  background-size: cover;
 }
 
-#loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-  margin: auto;
-  margin-top: 40px;
+
+#hero {
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(55, 0, 60);
 }
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+.tg  {
+  border-collapse:collapse;
+  border-spacing:0;
+  margin: 40px;
+}
+
+.tg td {
+  border-color:black;
+  border-style:solid;
+  border-width:1px;
+  font-family:Arial, sans-serif;
+  font-size:18px;
+  overflow:hidden;
+  padding:10px 20px;
+  word-break:normal;
+}
+
+.tg th {
+  border-color:black;
+  border-style:solid;
+  border-width:1px;
+  font-family:Arial, sans-serif;
+  font-size:18px;
+  font-weight:normal;
+  overflow:hidden;
+  padding:10px 20px;
+  word-break:normal;
+}
+
+.tg .tg-j6zm {
+  font-weight:bold;
+  text-align:left;
+  vertical-align:bottom
+}
+
+.tg .tg-7zrl {
+  text-align:left;
+  vertical-align:bottom
 }
