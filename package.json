@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  },
+  "name": "swansea_netball",
+  "description": "This project will be a simple website to be used by a Netball league in Swansea. This will have a simple design with basic elements required by a sports page. Implementation and maintanence of a league table will be the main challenge. This will need to be done well enough that the table and fixtures can easily be maintained by somebody without advanced computer literacy.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
