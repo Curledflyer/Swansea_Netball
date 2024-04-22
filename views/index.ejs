@@ -69,10 +69,10 @@
 
 <div> <%if (locals.data) {%>
     <h2>
-      <%=data.Position %>
+      <%=data[0].Position %>
     </h2>
       <span>
-        <%=data[3]%>
+        <%=data[3].Team%>
       </span>
       <span>
         participants: <%= data.length%>

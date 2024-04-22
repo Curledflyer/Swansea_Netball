@@ -8,12 +8,11 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.get("/", async (req, res) => {
     try {
         const response = await axios.get("https://api.apispreadsheets.com/data/y9IONL60zntCkCit/");
-        const result = JSON.stringify(response.data);
-        console.log(result[0]);
+        const result = response.data.data;
+        console.log(result);
         res.render("index.ejs", { data: result });
       } catch (error) {
         console.error("Failed to make request:", error.message);
