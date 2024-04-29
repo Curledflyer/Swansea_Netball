@@ -8,22 +8,28 @@ const port = 3000;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", async (req, res) => {
-    try {
-        const response = await axios.get("https://api.apispreadsheets.com/data/y9IONL60zntCkCit/");
-        const result = response.data.data;
-        console.log(result);
-        res.render("index.ejs", { data: result });
-      } catch (error) {
-        console.error("Failed to make request:", error.message);
-        res.render("index.ejs", {
-          error: error.message,
-        });
-      }
+//code attempt to loop
+
+
+//rendering all fuctional below
+
+app.get("/",  (req, res) => {
+  res.render("index.ejs")
 });
 
-app.get("/standings", (req, res) => {
-    res.render("standings.ejs")
+app.get("/standings", async (req, res) => {
+    try {
+      const response = await axios.get("https://api.apispreadsheets.com/data/0C0MwsTSwiqOPsoM/");
+      const result = response.data.data;
+      console.log(result);
+      res.render("standings.ejs", { data: result });
+    } catch (error) {
+      console.error("Failed to make request:", error.message);
+      res.render("standings.ejs", {
+        error: error.message,
+      });
+    }
+
 });
 
 app.get("/fixtures", (req, res) => {
