@@ -7,6 +7,10 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 div {
@@ -91,6 +95,7 @@ span {
   display: flex;
   justify-content: center;
   padding: 32px;
+  justify-self: flex-end;
 }
 
 .copyright {
@@ -115,6 +120,7 @@ justify-content: center;
   justify-content: center;
   align-items: center;
   background-color: #E5E7EB;
+  flex-direction: column;
 }
 
 .action {
@@ -216,4 +222,29 @@ a.button:hover {
 .tg .tg-7zrl {
   text-align:left;
   vertical-align:bottom
+}
+
+div #leagues {
+  display: flex;
+  flex-direction: column;
+}
+
+#leagues a {
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 10px;
+  background-color: white;
+  padding: 3px 10px;
+  text-decoration: none;
+  border: solid black 2px;
+  color: black;
+}
+
+#leagues a:hover {
+  background-color: black;
+  color: white;
+}
+
+#contact {
+  background-color: white;
 }
