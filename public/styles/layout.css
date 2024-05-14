@@ -9,7 +9,7 @@ body {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   justify-content: space-between;
 }
 
@@ -129,7 +129,6 @@ justify-content: center;
   align-items: center;
   gap: 250px;
   padding: 16px 64px;
-  margin: 60px;
   background-color: #3882f6;
   color: white;
   border-radius: 6px;
@@ -245,6 +244,53 @@ div #leagues {
   color: white;
 }
 
-#contact {
+.contact {
   background-color: white;
+  display: block;
+  height: 90vh;
+}
+
+.contact-options h2 {
+  color: black;
+}
+
+.contact-options h4 {
+  color: black;
+}
+
+.contact .block {
+  color: black;
+  justify-content: center;
+  align-items: center;
+  flex-grow:1;
+  flex-direction: column;
+  background-color: white;
+  height: 50vh;
+}
+
+.block p {
+  color: black;
+  font-size: 1em;
+}
+
+.contact-head {
+  display: flex;
+  text-align: center;
+flex-direction: column;
+background-color: rgb(55, 0, 60);
+color: white;
+}
+
+.contact-options {
+  text-align: center;
+  justify-self: center;
+  height: auto;
+}
+
+span.emoji {
+  font-size: 6vh;
+}
+
+.fourth {
+  padding-top: 50px;
 }
