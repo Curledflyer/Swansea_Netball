@@ -300,3 +300,11 @@ span.emoji {
 #display {
   min-height: 90vh;
 }
+
+.division-header {
+  background-color: white; 
+  text-align: center; 
+  color: black; 
+  margin: 0; 
+  padding-top: 25px;
+}

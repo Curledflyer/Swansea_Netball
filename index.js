@@ -15,7 +15,7 @@ app.get("/",  (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
-//  const response = await axios.get("https://api.apispreadsheets.com/data/0C0MwsTSwiqOPsoM/");
+const response = await axios.get("https://api.apispreadsheets.com/data/0C0MwsTSwiqOPsoM/");
     let result = response.data.data;
     console.log(result);
     res.render("standings.ejs", { data: result });
@@ -29,7 +29,7 @@ app.get("/standings", async (req, res) => {
 
 app.get("/division2", async (req, res) => {
   try{
-//  const response = await axios.get("https://api.apispreadsheets.com/data/db6yzcGGBbVtqqTQ/");
+const response = await axios.get("https://api.apispreadsheets.com/data/db6yzcGGBbVtqqTQ/");
     let result = response.data.data;
     console.log(result);
     res.render("division2.ejs", { data: result });
@@ -43,7 +43,7 @@ app.get("/division2", async (req, res) => {
 
 app.get("/division3", async (req, res) => {
   try{
-  // const response = await axios.get("https://api.apispreadsheets.com/data/bKckHV7wETljfDJP/");
+const response = await axios.get("https://api.apispreadsheets.com/data/bKckHV7wETljfDJP/");
     let result = response.data.data;
     console.log(result);
     res.render("division3.ejs", { data: result });
