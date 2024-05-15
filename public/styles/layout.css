@@ -7,10 +7,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
+
 }
 
 div {
@@ -48,7 +45,6 @@ padding: 12px 20px;
   background-color: #262626;
   display: flex; 
   flex-direction: column;
-  
 }
 
 .fixtures-container {
@@ -293,4 +289,14 @@ span.emoji {
 
 .fourth {
   padding-top: 50px;
+}
+
+.standings {
+  background-color: white;
+  display: block;
+  min-height: 100vh;
+}
+
+#display {
+  min-height: 90vh;
 }
