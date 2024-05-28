@@ -15,7 +15,7 @@ app.get("/",  (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
-const response = await axios.get("https://api.apispreadsheets.com/data/0C0MwsTSwiqOPsoM/");
+// const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
     let result = response.data.data;
     console.log(result);
     res.render("standings.ejs", { data: result });
@@ -29,7 +29,7 @@ const response = await axios.get("https://api.apispreadsheets.com/data/0C0MwsTSw
 
 app.get("/division2", async (req, res) => {
   try{
-const response = await axios.get("https://api.apispreadsheets.com/data/db6yzcGGBbVtqqTQ/");
+// const response = await axios.get("https://api.apispreadsheets.com/data/pN06M7EApvVCDUai/");
     let result = response.data.data;
     console.log(result);
     res.render("division2.ejs", { data: result });
@@ -43,13 +43,57 @@ const response = await axios.get("https://api.apispreadsheets.com/data/db6yzcGGB
 
 app.get("/division3", async (req, res) => {
   try{
-const response = await axios.get("https://api.apispreadsheets.com/data/bKckHV7wETljfDJP/");
+//const response = await axios.get(" ");
     let result = response.data.data;
     console.log(result);
     res.render("division3.ejs", { data: result });
   } catch (error) {
     console.error("Failed to make request:", error.message);
     res.render("division3.ejs", {
+      error: error.message,
+    });
+  }
+});
+
+// here down fixtures api settings
+
+app.get("/fixtures", async (req, res) => {
+  try{
+// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    let result = response.data.data;
+    console.log(result);
+    res.render("fixtures.ejs", { data: result });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("fixtures.ejs", {
+      error: error.message,
+    });
+  }
+});
+
+app.get("/fixtures2", async (req, res) => {
+  try{
+  //  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    let result = response.data.data;
+    console.log(result);
+    res.render("fixtures2.ejs", { data: result });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("fixtures2.ejs", {
+      error: error.message,
+    });
+  }
+});
+
+app.get("/fixtures3", async (req, res) => {
+  try{
+// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    let result = response.data.data;
+    console.log(result);
+    res.render("fixtures3.ejs", { data: result });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    res.render("fixtures3.ejs", {
       error: error.message,
     });
   }

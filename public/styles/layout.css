@@ -166,7 +166,7 @@ a.button:hover {
 #display {
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: black;
   box-sizing: border-box;
   background-size: cover;
@@ -307,4 +307,10 @@ span.emoji {
   color: black; 
   margin: 0; 
   padding-top: 25px;
+}
+
+.fixtures-page {
+  background-color: white;
+  display: block;
+  min-height: 100vh;
 }
