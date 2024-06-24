@@ -57,6 +57,9 @@ padding: 12px 20px;
   width: 300px;
   height: 150px;
   background-color: #373737;
+  justify-content: space-around;
+  align-items: center;
+
 }
 
 .fixtures-title {
@@ -115,7 +118,7 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E5E7EB;
+  background-color: #e5e7eb;
   flex-direction: column;
 }
 
@@ -289,6 +292,7 @@ span.emoji {
 
 .fourth {
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .standings {
@@ -313,4 +317,79 @@ span.emoji {
   background-color: white;
   display: block;
   min-height: 100vh;
+}
+
+.welcome-banner {
+  background-color: rgba(0, 0, 0, 0.641);
+  color:  rgb(255, 255, 255);
+  justify-content: center;
+  display: grid;
+}
+
+.welcome-banner h1 {
+  margin: 50px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.welcome-banner li {
+  margin: 5px;
+}
+
+.welcome-content {
+  display: grid;
+  margin-bottom: 70px;
+  background-color: rgba(255, 0, 0, 0.774);
+  color: rgb(255, 255, 255);
+padding: 30px;
+border-radius: 10px;
+font-size: 15px;
+}
+
+.welcome-content button {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  width: fit-content;
+  padding: 5px 15px;
+border-color: black;
+border-radius: 8px;
+border-width: 1px;
+font-size: 15px;
+}
+
+.welcome-banner-img {
+  width: 50%;
+  height: 300px;
+  border: solid white 1px;
+}
+
+.content-image {
+  gap: 15%;
+}
+
+.action-images {
+  justify-content: space-around;
+  gap: 70px;
+  margin: 40px;
+  padding-left: 0px;
+}
+
+.featured-image {
+  max-width: 50%;
+  max-height: 400px;
+}
+
+.other-images {
+  max-width: 25%;
+  max-height: 100%;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.other-images img {
+  height: 100%;
+}
+
+.action-images img{
+  border: solid white 3px;
 }

@@ -103,8 +103,8 @@ app.get("/fixtures", (req, res) => {
     res.render("fixtures.ejs")
 });
 
-app.get("/news", (req, res) => {
-    res.render("news.ejs")
+app.get("/blog", (req, res) => {  
+    res.render("blog.ejs")
 });
 
 app.get("/about", (req, res) => {
