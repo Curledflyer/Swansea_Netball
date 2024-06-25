@@ -1,9 +1,12 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import serverless from "serverless-http";
 
 const app = express();
 const port = 3000;
+
+export const handler = serverless(app)
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
