@@ -1,15 +1,20 @@
-import express from "express";
+import express, {Router} from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import serverless from "serverless-http";
 
 const app = express();
 const port = 3000;
+const router = Router();
 
-export const handler = serverless(app)
+
+app.set('view engline', 'ejs')
+router.get('/', (req, res) => res.render('index'))
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/", router)
+export const handler = serverless(app)
 
 
 app.get("/",  (req, res) => {
