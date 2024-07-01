@@ -22,6 +22,7 @@ div {
 .logo {
 max-width: 100px;
 height: 70px;
+padding: 10px;
 }
 
 .topnav {

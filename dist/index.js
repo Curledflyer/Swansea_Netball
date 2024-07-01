@@ -112,7 +112,7 @@ app.get("/fixtures", (req, res) => {
 });
 
 app.get("/blog", (req, res) => {  
-    res.render("blog.ejs")
+    res.render("index.ejs")
 });
 
 app.get("/about", (req, res) => {
