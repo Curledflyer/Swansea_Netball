@@ -7,9 +7,10 @@ const app = express();
 const port = 3000;
 const router = Router();
 
+app.set('views', './views');
+app.set('view engine', 'ejs');
+router.get('/', (req, res) => res.render('index.ejs'))
 
-app.set('view engline', 'ejs')
-router.get('/', (req, res) => res.render('index'))
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ export const handler = serverless(app)
 
 
 app.get("/",  (req, res) => {
-  res.render("index.ejs")
+  res.render("index")
 });
 
 app.get("/standings", async (req, res) => {
