@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <title>Standings</title>
     <link rel="stylesheet" href="styles/layout.css">
 </head>
@@ -249,6 +250,13 @@
     </div>
 
     <!--Javascript standings-->
-
+    <script>var siteWidth = 1280;
+      var scale = screen.width /siteWidth;
+      
+      document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+      var siteHeight = 1280;
+      var scaleH = screen.height /siteHeight;
+      
+      document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteHeight+', initial-scale='+scaleH+'');</script>
 </body>
 </html>
