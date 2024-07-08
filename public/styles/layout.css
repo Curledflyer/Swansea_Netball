@@ -408,13 +408,16 @@ font-size: 15px;
   }
   .header {
     max-width: 100vw;
+    position:sticky;
+    top:0;
   }
   .topnav {
     max-width: 100vw;
-    font-size: 0.6em;
   }
   .topnav a {
-    padding: 1.2em;
+    padding: 1em;
+    font-size: 0.6em;
+    flex: auto;
   }
   .tidbits {
     flex-direction: column;
@@ -488,6 +491,7 @@ font-size: 15px;
   }
   .welcome-banner {
     padding-bottom: 3em;
+    padding-top: 70px;
   }
 
 
@@ -524,6 +528,14 @@ font-size: 15px;
     overflow-x: auto;
         display: block;
         max-width: 100%;
+  }
+  .standings {
+    text-align: center;
+  }
+
+  .header {
+    text-align: center;
+    z-index: 1;
   }
   
 }
