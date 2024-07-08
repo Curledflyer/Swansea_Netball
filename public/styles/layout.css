@@ -390,7 +390,7 @@ font-size: 15px;
   border: solid white 1px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
   div {
     width:100%;
     max-width: 960px;
@@ -489,4 +489,41 @@ font-size: 15px;
   .welcome-banner {
     padding-bottom: 3em;
   }
+
+
+  .fixtures-page {
+    min-height:0px;
+    text-align: center;
+  }
+
+  #display {
+    flex-direction: column;
+  }
+
+  #table {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #leagues {
+    align-items: center;
+  }
+
+  #leagues a {
+    max-width: 75vw;
+  }
+
+  .contact-options {
+    flex-direction: column;
+  }
+  .tg {
+    margin-bottom: 10vh;
+    max-width: 95vw;
+  }
+  table {
+    overflow-x: auto;
+        display: block;
+        max-width: 100%;
+  }
+  
 }
