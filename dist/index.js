@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
-// const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
+ const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
     let result = response.data.data;
     console.log(result);
     res.render("standings.ejs", { data: result });
@@ -52,7 +52,7 @@ app.get("/standings", async (req, res) => {
 
 app.get("/division2", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/pN06M7EApvVCDUai/");
+ const response = await axios.get("https://api.apispreadsheets.com/data/pN06M7EApvVCDUai/");
     let result = response.data.data;
     console.log(result);
     res.render("division2.ejs", { data: result });
@@ -66,7 +66,7 @@ app.get("/division2", async (req, res) => {
 
 app.get("/division3", async (req, res) => {
   try{
-//const response = await axios.get(" ");
+const response = await axios.get(" ");
     let result = response.data.data;
     console.log(result);
     res.render("division3.ejs", { data: result });
@@ -82,7 +82,7 @@ app.get("/division3", async (req, res) => {
 
 app.get("/fixtures", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     console.log(result);
     res.render("fixtures.ejs", { data: result });
@@ -96,7 +96,7 @@ app.get("/fixtures", async (req, res) => {
 
 app.get("/fixtures2", async (req, res) => {
   try{
-  //  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     console.log(result);
     res.render("fixtures2.ejs", { data: result });
@@ -110,7 +110,7 @@ app.get("/fixtures2", async (req, res) => {
 
 app.get("/fixtures3", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     console.log(result);
     res.render("fixtures3.ejs", { data: result });
