@@ -398,6 +398,20 @@ font-size: 15px;
   border: solid white 1px;
 }
 
+.fixtures-table {
+  flex-direction: column;
+  text-align: center;
+}
+
+.fixtures-table h2 {
+  margin: 0;
+}
+
+.results-table {
+  flex-direction: column;
+  text-align: center;
+}
+
 @media (max-width: 800px) {
   div {
     width:100%;
