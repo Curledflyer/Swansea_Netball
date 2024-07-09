@@ -8,7 +8,7 @@ const port = 3000;
 const router = Router();
 
 app.set('view engine', 'ejs');
-router.get('/', (req, res) => res.render('index.ejs'))
+
 
 
 app.use(express.static("public"));
@@ -16,14 +16,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router)
 export const handler = serverless(app)
 
-
-/* app.get("/",  (req, res) => {
+/*
+app.get("/",  (req, res) => {
   res.render("index")
 });
 */
+
 app.get("/", async (req, res) => {
   try{
-   // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
         let result = response.data.data;
         console.log(result);
         res.render("index.ejs", { data: result });
