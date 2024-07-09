@@ -182,7 +182,7 @@ app.get("/fixtures5", async (req, res) => {
 
 app.get("/fixtures6", async (req, res) => {
   try{
-  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     res.render("fixtures6.ejs", { data: result });
   } catch (error) {
