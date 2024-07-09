@@ -36,7 +36,7 @@ app.get("/", async (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
- const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
+// const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
     let result = response.data.data;
     res.render("standings.ejs", { data: result });
   } catch (error) {
@@ -116,7 +116,7 @@ app.get("/division6", async (req, res) => {
 
 app.get("/fixtures", async (req, res) => {
   try{
- const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     console.log(result)
     res.render("fixtures.ejs", { data: result });
@@ -130,7 +130,7 @@ app.get("/fixtures", async (req, res) => {
 
 app.get("/fixtures2", async (req, res) => {
   try{
-   const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+//   const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     res.render("fixtures2.ejs", { data: result });
   } catch (error) {
@@ -143,7 +143,7 @@ app.get("/fixtures2", async (req, res) => {
 
 app.get("/fixtures3", async (req, res) => {
   try{
- const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     res.render("fixtures3.ejs", { data: result });
   } catch (error) {
@@ -156,7 +156,7 @@ app.get("/fixtures3", async (req, res) => {
 
 app.get("/fixtures4", async (req, res) => {
   try{
-  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     res.render("fixtures4.ejs", { data: result });
   } catch (error) {
@@ -169,7 +169,7 @@ app.get("/fixtures4", async (req, res) => {
 
 app.get("/fixtures5", async (req, res) => {
   try{
-  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
     res.render("fixtures5.ejs", { data: result });
   } catch (error) {
