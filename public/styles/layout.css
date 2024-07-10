@@ -3,11 +3,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
   color: white;
-  background-image: url("../images/dark-netball-image.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-
+  background-color: white;
 }
 
 div {
@@ -255,7 +251,7 @@ div #leagues {
 .contact {
   background-color: white;
   display: block;
-  height: 90vh;
+  height: 100vh;
 }
 
 .contact-options h2 {
@@ -412,6 +408,54 @@ font-size: 15px;
   text-align: center;
 }
 
+/*
+w3 form css
+*/
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 0; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+
+/* Add a background color and some padding around the form */
+.contact-form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: block;
+  margin: auto;
+  width: 60vw;
+}
+
+.contact-form div {
+  display: block;
+}
+
+.mb-3 label {
+  color: black;
+}
+
+.mb-3 {
+  margin-top: 10px;
+}
+
+.text-danger {
+  color: red;
+}
+
+.form-control {
+  margin-bottom: 0;
+}
+
+
 @media (max-width: 800px) {
   div {
     width:100%;
@@ -559,5 +603,16 @@ font-size: 15px;
     text-align: center;
     z-index: 1;
   }
+
+  .contact-form {
+    display: block;
+    padding: 2vh;
+    width:auto;
+  }
   
+  .contact-form div {
+    width: 90vw;
+  }
+
+
 }

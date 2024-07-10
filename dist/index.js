@@ -2,6 +2,7 @@ import express, {Router} from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
 import serverless from "serverless-http";
+import expressValidator, {check, validationResult} from "express-validator";
 
 const app = express();
 const port = 3000;
@@ -10,7 +11,7 @@ const router = Router();
 app.set('view engine', 'ejs');
 
 
-
+app.use(express.json());
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router)
@@ -200,7 +201,23 @@ app.get("/blog", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.render("about.ejs")
+    res.render("about.ejs", { errors: ''})
+});
+
+app.post('/send', 
+[
+  check('name').notEmpty().withMessage('Name is required'),
+  check('email').isEmail().withMessage('Invalid Email Address'),
+  check('subject').notEmpty().withMessage('Subject is required'),
+  check('message').notEmpty().withMessage('Message is required')
+], (request, response) => {
+
+  const errors = validationResult(request);
+
+    if (!errors.isEmpty())
+    {
+      response.render('about', { errors : errors.mapped() });
+    }
 });
 
 
