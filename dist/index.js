@@ -3,6 +3,7 @@ import axios from "axios";
 import bodyParser from "body-parser";
 import serverless from "serverless-http";
 import expressValidator, {check, validationResult} from "express-validator";
+import nodemailer from "nodemailer";
 
 const app = express();
 const port = 3000;
@@ -14,8 +15,12 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/", router)
-export const handler = serverless(app)
+app.use("/", router);
+export const handler = serverless(app);
+
+// google recaptcha
+
+
 
 //Home page
 
@@ -200,8 +205,8 @@ app.get("/blog", (req, res) => {
     res.render("index.ejs")
 });
 
-app.get("/about", (req, res) => {
-    res.render("about.ejs", { errors: ''})
+app.get("/contact", (req, res) => {
+    res.render("contact.ejs", { errors: ''})
 });
 
 app.post('/send', 
@@ -216,8 +221,38 @@ app.post('/send',
 
     if (!errors.isEmpty())
     {
-      response.render('about', { errors : errors.mapped() });
+      response.render('contact', { errors : errors.mapped() });
+    } else {
+      const transporter = nodemailer.createTransport({
+            service : 'Gmail',
+            auth : {  user: 'swanseanetballuk@gmail.com',
+					            pass : 'nouaebjxvhczpims'
+            }
+			});
+
+			const mail_option = {
+				from : request.body.email,
+				to : request.body.email + ', curledflyer98@gmail.com',
+				subject : request.body.subject,
+				text : request.body.message
+			};
+
+			transporter.sendMail(mail_option, (error, info) => {
+				if(error)
+				{
+					console.log(error);
+				}
+				else
+				{
+					response.redirect('/success');
+				}
+      });
     }
+  });
+
+    app.get('/success', (request, response) => {
+
+      response.send('<h1>Your Message was Successfully Sent!</h1>');
 });
 
 
