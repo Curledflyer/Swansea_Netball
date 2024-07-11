@@ -231,10 +231,13 @@ app.post('/send',
 			});
 
 			const mail_option = {
-				from : request.body.email,
-				to : request.body.email + ', curledflyer98@gmail.com',
+				from : `<${request.body.name}>`,
+				to : 'curledflyer98@gmail.com',
 				subject : request.body.subject,
-				text : request.body.message
+				text :`
+Name: ${request.body.name}
+Email: ${request.body.email}
+Message: ${request.body.message}`
 			};
 
 			transporter.sendMail(mail_option, (error, info) => {
