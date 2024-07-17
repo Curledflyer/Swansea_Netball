@@ -183,6 +183,9 @@ a.button:hover {
   box-sizing: border-box;
   background-size: cover;
 }
+.standings #display {
+  background-color: white;
+}
 
 
 #hero {
@@ -320,6 +323,11 @@ span.emoji {
   color: white; 
   margin: 0; 
   padding-top: 25px;
+}
+
+.standings .division-header {
+  background-color: white;
+  color: black;
 }
 
 .fixtures-page {
