@@ -363,8 +363,8 @@ font-size: 15px;
 }
 
 .welcome-banner-img {
-  width: 50%;
-  height: 300px;
+  width: 60%;
+  height: 350px;
   border: solid white 1px;
 }
 
@@ -388,6 +388,10 @@ font-size: 15px;
   max-width: 25%;
   flex-direction: column;
   gap: 15px;
+}
+
+.other-images img {
+  max-height: 200px;
 }
 
 .action-images img{
