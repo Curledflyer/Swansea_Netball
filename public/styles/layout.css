@@ -3,8 +3,12 @@ body {
   margin: 0;
   font-family: 'Montserrat', Arial, sans-serif;
   color: white;
-  background-color: white;
+ background-image: url("../images/GS_GK_leap.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
 }
+
 
 div {
   display: flex;
@@ -174,7 +178,7 @@ a.button:hover {
 #display {
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   color: black;
   box-sizing: border-box;
   background-size: cover;
@@ -311,9 +315,9 @@ span.emoji {
 }
 
 .division-header {
-  background-color: white; 
+  background-color: rgba(255, 255, 255, 0); 
   text-align: center; 
-  color: black; 
+  color: white; 
   margin: 0; 
   padding-top: 25px;
 }
@@ -405,6 +409,7 @@ font-size: 15px;
 
 .fixtures-table h2 {
   margin: 0;
+  color: white;
 }
 
 .results-table {
