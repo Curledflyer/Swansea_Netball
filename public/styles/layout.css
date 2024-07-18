@@ -307,7 +307,7 @@ span.emoji {
 .standings {
   display: block;
   min-height: 100vh;
-  background-image: url("../images/Blocked_pass.jpg")
+  background-image: url("../images/Blocked_pass-min.jpg")
 }
 
 #display {
@@ -327,7 +327,7 @@ span.emoji {
   background-color: white;
   display: block;
   min-height: 100vh;
-  background-image: url("../images/Team_huddle.jpg");
+  background-image: url("../images/Team_huddle-min.jpg");
 }
 
 .welcome-banner {
@@ -468,7 +468,7 @@ input[type=text], textarea {
 }
 
 .contact-page {
-  background-image: url("../images/Ball_passed.jpg");
+  background-image: url("../images/Ball_passed-min.jpg");
 }
 
 
