@@ -25,7 +25,7 @@ let userIsAuthorised = false;
 function passwordCheck(req, res, next) {
   const password = req.body["password"];
   const userName = req.body["name"];
-  if (password === "ILoveProgramming" && userName === "conor") {
+  if (password === "TestPassword4872" && userName === "testUser") {
 userIsAuthorised = true;
 } else {
   userIsAuthorised = false;
