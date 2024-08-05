@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+    <title>Admin Login</title>
     <link rel="stylesheet" href="styles/layout.css">
 </head>
 <body class="blog_page">
@@ -22,10 +22,16 @@
 
   <!--content-->
 
-<div class="blog_body">
-  <a href="/admin">Admin Login</a>
-  <div class="table_of_contents"></div>
-</div>
+ <div class="blog_body">
+    <h1>Admin Login</h1>
+    <form action="/check" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="password">Password:</label>
+      <input type="text" id="password" name="password" required>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 
   <!--footer-->
   <div class="footer">

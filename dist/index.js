@@ -18,7 +18,33 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 export const handler = serverless(app);
 
-// google recaptcha
+// admin password check
+
+let userIsAuthorised = false;
+
+function passwordCheck(req, res, next) {
+  const password = req.body["password"];
+  const userName = req.body["name"];
+  if (password === "ILoveProgramming" && userName === "conor") {
+userIsAuthorised = true;
+} else {
+  userIsAuthorised = false;
+}
+next();
+}
+
+app.use(passwordCheck);
+
+app.post("/check", (req, res) => {
+  if (userIsAuthorised) {
+  res.render("edit_blog.ejs");
+} else {
+  res.render("blog.ejs")
+}})
+
+app.get("/admin", (req, res) => {
+  res.render("admin.ejs");
+})
 
 
 
@@ -26,7 +52,7 @@ export const handler = serverless(app);
 
 app.get("/", async (req, res) => {
   try{
-  //  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+    const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
         let result = response.data.data;
         res.render("index.ejs", { data: result });
       } catch (error) {
@@ -202,7 +228,7 @@ app.get("/fixtures6", async (req, res) => {
 // Other pages
 
 app.get("/blog", (req, res) => {  
-    res.render("index.ejs")
+    res.render("blog.ejs")
 });
 
 app.get("/contact", (req, res) => {
@@ -257,6 +283,10 @@ Message: ${request.body.message}`
 
       response.send('<h1>Your Message was Successfully Sent!</h1>');
 });
+
+
+// admin login
+
 
 
 
