@@ -100,7 +100,7 @@ span {
 .footer {
   background-color: #b4b4b4;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 16px;
 }
@@ -481,6 +481,8 @@ input[type=text], textarea {
 height:auto;
 }
 
+
+
 .urgent_message {
   border: solid red 2px; 
   background-color: black; 
@@ -491,14 +493,32 @@ height:auto;
 
 .blog_body {
 justify-content: center;
-height: 90vh;
+height: auto;
 color: black;
 flex-direction: column;
 align-items: center;
 }
 
+.admin_body {
+  justify-content: center;
+  height: 90vh;
+  color: black;
+  flex-direction: column;
+  align-items: center;
+  }
+
+#myUl {
+  flex-direction: column;
+  gap: 10vh;
+}
+
+#myUl div {
+  flex-direction: column;
+  align-items: center;
+}
 
 @media (max-width: 800px) {
+
   div {
     width:100%;
     max-width: 960px;
@@ -656,5 +676,9 @@ align-items: center;
     width: 90vw;
   }
 
-
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
 }

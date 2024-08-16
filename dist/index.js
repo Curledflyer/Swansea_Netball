@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import serverless from "serverless-http";
 import expressValidator, {check, validationResult} from "express-validator";
 import nodemailer from "nodemailer";
+import pg from "pg";
 
 const app = express();
 const port = 3000;
@@ -17,6 +18,15 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 export const handler = serverless(app);
+
+const db = new pg.Client({
+  user: "postgres",
+  host: "localhost",
+  database: "SN_blog",
+  password: "lincoln1",
+  port: 5432,
+});
+db.connect();
 
 // admin password check
 
@@ -35,11 +45,21 @@ next();
 
 app.use(passwordCheck);
 
-app.post("/check", (req, res) => {
+app.post("/check", async (req, res) => {
   if (userIsAuthorised) {
-  res.render("edit_blog.ejs");
+    try {
+      const result = await db.query("SELECT * FROM swansea_blog ORDER BY id DESC");
+      const items = result.rows;
+  
+      res.render("edit_blog.ejs", {
+        listTitle: "Today",
+        listItems: items,
+      });
+    } catch (err) {
+      console.log(err);
+    };
 } else {
-  res.render("blog.ejs")
+  res.render("admin.ejs")
 }})
 
 app.get("/admin", (req, res) => {
@@ -50,9 +70,11 @@ app.get("/admin", (req, res) => {
 
 //Home page
 
+
+
 app.get("/", async (req, res) => {
   try{
-    const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+   // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
         let result = response.data.data;
         res.render("index.ejs", { data: result });
       } catch (error) {
@@ -64,7 +86,10 @@ app.get("/", async (req, res) => {
 });
 
 
+
 // Standings pages
+
+
 
 app.get("/standings", async (req, res) => {
   try {
@@ -144,13 +169,16 @@ app.get("/division6", async (req, res) => {
   }
 });
 
+
+
 // here down fixtures api settings
+
+
 
 app.get("/fixtures", async (req, res) => {
   try{
 // const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
     let result = response.data.data;
-    console.log(result)
     res.render("fixtures.ejs", { data: result });
   } catch (error) {
     console.error("Failed to make request:", error.message);
@@ -225,15 +253,16 @@ app.get("/fixtures6", async (req, res) => {
   }
 });
 
-// Other pages
 
-app.get("/blog", (req, res) => {  
-    res.render("blog.ejs")
-});
+
+// Contact page with form
+
+
 
 app.get("/contact", (req, res) => {
     res.render("contact.ejs", { errors: ''})
 });
+
 
 app.post('/send', 
 [
@@ -285,11 +314,114 @@ Message: ${request.body.message}`
 });
 
 
-// admin login
+//blog updates and rendering
+
+
+app.post("/add", async (req, res) => {
+  const inputContent = req.body["blog_post"];
+  const inputTitle = req.body["title"]
+
+    try {
+      await db.query(
+        "INSERT INTO swansea_blog (content, title) VALUES ($1, $2)",
+        [inputContent, inputTitle]
+      );
+      const result = await db.query("SELECT * FROM swansea_blog ORDER BY id DESC");
+    const items = result.rows;
+    res.render("edit_blog.ejs", {
+      listTitle: "Today",
+      listItems: items,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/edit", async (req, res) => {
+  const item = req.body.updatedItemTitle;
+  const id = req.body.updatedItemId;
+
+  try {
+    await db.query("UPDATE swansea_blog SET title = $1 WHERE id = $2", [item, id]);
+    const result = await db.query("SELECT * FROM swansea_blog ORDER BY id DESC");
+    const items = result.rows;
+    res.render("edit_blog.ejs", {
+      listTitle: "Today",
+      listItems: items,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/editPost", async (req, res) => {
+  const id = req.body.updatedItemId;
+  const post = req.body.updatedItemContent;
+
+  try {
+    await db.query("UPDATE swansea_blog SET content = $1 WHERE id = $2", [post, id]);
+    const result = await db.query("SELECT * FROM swansea_blog ORDER BY id DESC");
+    const items = result.rows;
+    res.render("edit_blog.ejs", {
+      listTitle: "Today",
+      listItems: items,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/delete", async (req, res) => {
+  const id = req.body.deleteItemId;
+  try {
+    await db.query("DELETE FROM swansea_blog WHERE id = $1", [id]);
+    const result = await db.query("SELECT * FROM swansea_blog ORDER BY id DESC");
+    const items = result.rows;
+    res.render("edit_blog.ejs", {
+      listTitle: "Today",
+      listItems: items,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+
+async function checkBlog() {
+  const result = await db.query("SELECT title, content FROM swansea_blog");
+let blogTitle = [];
+result.rows.forEach((post) => {
+
+  let array = [];
+    array.push(post.title);
+    array.push(post.content);
+    blogTitle.push(array);
+  }); 
+return blogTitle;
+};
 
 
 
+async function checkPost() {
+  const result = await db.query("SELECT content FROM swansea_blog");
+  let blogPost = [];
+  result.rows.forEach((title) => {
+    blogPost.push(title.content);
+  })
+  return blogPost;
+}
+  
 
+// GET blog page
+ app.get("/blog", async (req, res) => {
+  const blogTitle = await checkBlog();
+  const blogPost = await checkPost();
+
+  res.render("blog.ejs", { blogTitle: blogTitle, blogPost: blogPost});
+  
+}); 
+
+// run server
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
   });
