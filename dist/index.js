@@ -25,6 +25,7 @@ const db = new pg.Client({
   database: "SN_blog",
   password: "lincoln1",
   port: 5432,
+  DATABASE_URL: "postgresql://swansea_netball_user:swopokgpthwHgZkUD1IPZbSWVomkIxc4@dpg-cqvli2dds78s739m7r9g-a/swansea_netball"
 });
 db.connect();
 
