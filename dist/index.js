@@ -19,15 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 export const handler = serverless(app);
 
-const db = new pg.Client({
-  user: "postgres",
-  host: "localhost",
-  database: "SN_blog",
-  password: "lincoln1",
-  port: 5432,
-  DATABASE_URL: "postgresql://swansea_netball_user:swopokgpthwHgZkUD1IPZbSWVomkIxc4@dpg-cqvli2dds78s739m7r9g-a/swansea_netball"
-});
-db.connect();
+
 
 // admin password check
 
