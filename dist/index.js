@@ -13,6 +13,13 @@ const router = Router();
 
 app.set('view engine', 'ejs');
 
+const config = {
+  connectionString: process.env.connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+}
+
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -29,13 +36,7 @@ const database = process.env.databaseSecret;
 const dbPass = process.env.databasePassKey;
 
 
-const db = new pg.Client({
-  user: dbUser,
-  host: dbHost,
-  database: database,
-  password: dbPass,
-  port: 5432,
-});
+const db = new pg.Client(config);
 db.connect();
 
 
