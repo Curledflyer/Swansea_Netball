@@ -5,6 +5,7 @@ import serverless from "serverless-http";
 import expressValidator, {check, validationResult} from "express-validator";
 import nodemailer from "nodemailer";
 import pg from "pg";
+import 'dotenv/config'
 
 const app = express();
 const port = 3000;
@@ -19,6 +20,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", router);
 export const handler = serverless(app);
 
+const adminPass = process.env.AdminPassKey;
+const adminUser = process.env.adminUserKey;
+const transporterPass = process.env.transporterPassKey;
+const dbUser = process.env.dbUserSecret;
+const dbHost = process.env.dbHostSecret;
+const database = process.env.databaseSecret;
+const dbPass = process.env.databasePassKey;
+
+
+const db = new pg.Client({
+  user: dbUser,
+  host: dbHost,
+  database: database,
+  password: dbPass,
+  port: 5432,
+});
+db.connect();
+
 
 
 // admin password check
@@ -28,7 +47,7 @@ let userIsAuthorised = false;
 function passwordCheck(req, res, next) {
   const password = req.body["password"];
   const userName = req.body["name"];
-  if (password === "TestPassword4872" && userName === "testUser") {
+  if (password == adminPass && userName == adminUser) {
 userIsAuthorised = true;
 } else {
   userIsAuthorised = false;
@@ -274,7 +293,7 @@ app.post('/send',
       const transporter = nodemailer.createTransport({
             service : 'Gmail',
             auth : {  user: 'swanseanetballuk@gmail.com',
-					            pass : 'nouaebjxvhczpims'
+					            pass : transporterPass
             }
 			});
 
