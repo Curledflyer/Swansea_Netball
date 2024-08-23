@@ -153,6 +153,7 @@ justify-content: center;
 .join-in {
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.641)
 }
 
 .tidbits {
