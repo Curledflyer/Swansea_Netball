@@ -31,12 +31,7 @@ const adminPass = process.env.AdminPassKey;
 const adminUser = process.env.adminUserKey;
 const transporterPass = process.env.transporterPassKey;
 
-/*
-const dbUser = process.env.dbUserSecret;
-const dbHost = process.env.dbHostSecret;
-const database = process.env.databaseSecret;
-const dbPass = process.env.databasePassKey;
-*/
+
 
 const db = new pg.Client(config);
 db.connect();
