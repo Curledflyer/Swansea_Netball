@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/layout.css">
     <style>html {
       background-color: #e4e9fd;
-      background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+      background-image: -webkit-linear-gradient(65deg, #f14242 50%, #fde4e4 50%);
       min-width: 100vw;
       font-family: "helvetica neue";}
 
@@ -90,12 +90,16 @@ titleForBlog.forEach(function(post) {
   let div = document.createElement("div");
   let para = document.createElement("p");
   let head = document.createElement("h2");
+  //let date = document.createElement("h4");
   let title = document.createTextNode(post[0]);
   let content = document.createTextNode(post[1]);
+  //let dateCreated = document.createTextNode(post[2]);
   div.appendChild(head);
   div.appendChild(para);
+  //div.appendChild(date);
   head.appendChild(title);
   para.appendChild(content);
+  //date.appendChild(dateCreated)
   document.getElementById("myUl").appendChild(div);
 });
 

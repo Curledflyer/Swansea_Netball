@@ -8,7 +8,7 @@ import pg from "pg";
 import 'dotenv/config'
 
 const app = express();
-const port = 5432;
+const port = 3000;
 const router = Router();
 
 app.set('view engine', 'ejs');
@@ -405,6 +405,7 @@ result.rows.forEach((post) => {
   let array = [];
     array.push(post.title);
     array.push(post.content);
+   // array.push(post.date)
     blogTitle.push(array);
   }); 
 return blogTitle;
