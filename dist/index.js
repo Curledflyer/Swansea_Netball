@@ -103,7 +103,7 @@ app.get("/", async (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
-/const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
+const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
     let result = response.data.data;
     res.render("standings.ejs", { data: result });
   } catch (error) {
