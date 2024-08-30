@@ -30,6 +30,14 @@ export const handler = serverless(app);
 const adminPass = process.env.AdminPassKey;
 const adminUser = process.env.adminUserKey;
 const transporterPass = process.env.transporterPassKey;
+const fixturesApiKey = process.env.fixturesApiKey;
+const div1ApiKey = process.env.div1ApiKey;
+const div2ApiKey = process.env.div2ApiKey;
+const div3ApiKey = process.env.div3ApiKey;
+const div4ApiKey = process.env.div4ApiKey;
+const div5ApiKey = process.env.div5ApiKey;
+
+
 
 
 
@@ -84,7 +92,7 @@ app.get("/admin", (req, res) => {
 
 app.get("/", async (req, res) => {
   try{
- //  const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
         let result = response.data.data;
         res.render("index.ejs", { data: result });
       } catch (error) {
@@ -103,7 +111,7 @@ app.get("/", async (req, res) => {
 
 app.get("/standings", async (req, res) => {
   try {
- // const response = await axios.get("https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/RqIsV4hH8iD3H8Lf/${div1ApiKey}`);
     let result = response.data.data;
     res.render("standings.ejs", { data: result });
   } catch (error) {
@@ -116,7 +124,7 @@ app.get("/standings", async (req, res) => {
 
 app.get("/division2", async (req, res) => {
   try{
- //const response = await axios.get("https://api.apispreadsheets.com/data/pN06M7EApvVCDUai/");
+ const response = await axios.get(`https://api.apispreadsheets.com/data/pN06M7EApvVCDUai/${div2ApiKey}`);
     let result = response.data.data;
     res.render("division2.ejs", { data: result });
   } catch (error) {
@@ -129,7 +137,7 @@ app.get("/division2", async (req, res) => {
 
 app.get("/division3", async (req, res) => {
   try{
-// const response = await axios.get(" ");
+const response = await axios.get(`https://api.apispreadsheets.com/data/5GVfjqVLGyKT3ygw/${div3ApiKey}`);
     let result = response.data.data;
     res.render("division3.ejs", { data: result });
   } catch (error) {
@@ -142,7 +150,7 @@ app.get("/division3", async (req, res) => {
 
 app.get("/division4", async (req, res) => {
   try{
-// const response = await axios.get(" ");
+const response = await axios.get(`https://api.apispreadsheets.com/data/7QiBlicJRAM5vGRc/${div4ApiKey}`);
     let result = response.data.data;
     res.render("division4.ejs", { data: result });
   } catch (error) {
@@ -155,7 +163,7 @@ app.get("/division4", async (req, res) => {
 
 app.get("/division5", async (req, res) => {
   try{
-// const response = await axios.get(" ");
+// const response = await axios.get(`https://api.apispreadsheets.com/data/7QiBlicJRAM5vGRc/${div5ApiKey}`);
     let result = response.data.data;
     res.render("division5.ejs", { data: result });
   } catch (error) {
@@ -187,7 +195,7 @@ app.get("/division6", async (req, res) => {
 
 app.get("/fixtures", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+ const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures.ejs", { data: result });
   } catch (error) {
@@ -200,7 +208,7 @@ app.get("/fixtures", async (req, res) => {
 
 app.get("/fixtures2", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures2.ejs", { data: result });
   } catch (error) {
@@ -213,7 +221,7 @@ app.get("/fixtures2", async (req, res) => {
 
 app.get("/fixtures3", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures3.ejs", { data: result });
   } catch (error) {
@@ -226,7 +234,7 @@ app.get("/fixtures3", async (req, res) => {
 
 app.get("/fixtures4", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures4.ejs", { data: result });
   } catch (error) {
@@ -239,7 +247,7 @@ app.get("/fixtures4", async (req, res) => {
 
 app.get("/fixtures5", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures5.ejs", { data: result });
   } catch (error) {
@@ -252,7 +260,7 @@ app.get("/fixtures5", async (req, res) => {
 
 app.get("/fixtures6", async (req, res) => {
   try{
-// const response = await axios.get("https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/");
+const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
     let result = response.data.data;
     res.render("fixtures6.ejs", { data: result });
   } catch (error) {
