@@ -163,7 +163,7 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/ZPDJGEeFk
 
 app.get("/division5", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/7QiBlicJRAM5vGRc/${div5ApiKey}`);
+    const response = await axios.get(`https://api.apispreadsheets.com/data/7QiBlicJRAM5vGRc/${div5ApiKey}`);
     let result = response.data.data;
     res.render("division5.ejs", { data: result });
   } catch (error) {
@@ -173,20 +173,6 @@ app.get("/division5", async (req, res) => {
     });
   }
 });
-
-app.get("/division6", async (req, res) => {
-  try{
-// const response = await axios.get(" ");
-    let result = response.data.data;
-    res.render("division6.ejs", { data: result });
-  } catch (error) {
-    console.error("Failed to make request:", error.message);
-    res.render("division6.ejs", {
-      error: error.message,
-    });
-  }
-});
-
 
 
 // here down fixtures api settings
