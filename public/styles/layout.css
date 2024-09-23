@@ -187,6 +187,7 @@ a.button:hover {
 
 
 #hero {
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: rgb(55, 0, 60);
