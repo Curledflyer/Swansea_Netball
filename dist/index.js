@@ -30,7 +30,6 @@ export const handler = serverless(app);
 const adminPass = process.env.AdminPassKey;
 const adminUser = process.env.adminUserKey;
 const transporterPass = process.env.transporterPassKey;
-const fixturesApiKey = process.env.fixturesApiKey;
 const div1ApiKey = process.env.div1ApiKey;
 const div2ApiKey = process.env.div2ApiKey;
 const div3ApiKey = process.env.div3ApiKey;
@@ -185,7 +184,6 @@ app.get("/division5", async (req, res) => {
 
 app.get("/fixtures", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
  const response = await axios.get(`https://api.apispreadsheets.com/data/3RU53Dl3YhgEHrZV/${fixtures1ApiKey}`);
     let result = response.data.data;
     res.render("fixtures.ejs", { data: result });
@@ -199,7 +197,6 @@ app.get("/fixtures", async (req, res) => {
 
 app.get("/fixtures2", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
 const response = await axios.get(`https://api.apispreadsheets.com/data/L1H8Pq9z3l2Q9Y40/${fixtures2ApiKey}`);
     let result = response.data.data;
     res.render("fixtures2.ejs", { data: result });
@@ -213,7 +210,6 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/L1H8Pq9z3
 
 app.get("/fixtures3", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
  const response = await axios.get(`https://api.apispreadsheets.com/data/75Fc6olVaBV2Ov1t/${fixtures3ApiKey}`);
     let result = response.data.data;
     res.render("fixtures3.ejs", { data: result });
@@ -227,7 +223,6 @@ app.get("/fixtures3", async (req, res) => {
 
 app.get("/fixtures4", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
 const response = await axios.get(`https://api.apispreadsheets.com/data/sZiv1gC4fXvW4y91/${fixtures4ApiKey}`);
     let result = response.data.data;
     res.render("fixtures4.ejs", { data: result });
@@ -241,7 +236,6 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/sZiv1gC4f
 
 app.get("/fixtures5", async (req, res) => {
   try{
-// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
 const response = await axios.get(`https://api.apispreadsheets.com/data/ydopvKsRRZ1LuVYb/${fixtures5ApiKey}`);
     let result = response.data.data;
     res.render("fixtures5.ejs", { data: result });
