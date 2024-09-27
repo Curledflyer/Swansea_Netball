@@ -8,7 +8,7 @@ import pg from "pg";
 import 'dotenv/config'
 
 const app = express();
-const port = 5432;
+const port = 3000;
 const router = Router();
 
 app.set('view engine', 'ejs');
@@ -36,7 +36,11 @@ const div2ApiKey = process.env.div2ApiKey;
 const div3ApiKey = process.env.div3ApiKey;
 const div4ApiKey = process.env.div4ApiKey;
 const div5ApiKey = process.env.div5ApiKey;
-
+const fixtures1ApiKey = process.env.fixtures1ApiKey;
+const fixtures2ApiKey = process.env.fixtures2ApiKey;
+const fixtures3ApiKey = process.env.fixtures3ApiKey;
+const fixtures4ApiKey = process.env.fixtures4ApiKey;
+const fixtures5ApiKey = process.env.fixtures5ApiKey;
 
 
 
@@ -92,7 +96,7 @@ app.get("/admin", (req, res) => {
 
 app.get("/", async (req, res) => {
   try{
- const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+ // const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
         let result = response.data.data;
         res.render("index.ejs", { data: result });
       } catch (error) {
@@ -181,7 +185,8 @@ app.get("/division5", async (req, res) => {
 
 app.get("/fixtures", async (req, res) => {
   try{
- const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+ const response = await axios.get(`https://api.apispreadsheets.com/data/3RU53Dl3YhgEHrZV/${fixtures1ApiKey}`);
     let result = response.data.data;
     res.render("fixtures.ejs", { data: result });
   } catch (error) {
@@ -194,7 +199,8 @@ app.get("/fixtures", async (req, res) => {
 
 app.get("/fixtures2", async (req, res) => {
   try{
-const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+// const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+const response = await axios.get(`https://api.apispreadsheets.com/data/L1H8Pq9z3l2Q9Y40/${fixtures2ApiKey}`);
     let result = response.data.data;
     res.render("fixtures2.ejs", { data: result });
   } catch (error) {
@@ -208,6 +214,7 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsAS
 app.get("/fixtures3", async (req, res) => {
   try{
 const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+// const response = await axios.get(`https://api.apispreadsheets.com/data/3RU53Dl3YhgEHrZV/${fixtures3ApiKey}`);
     let result = response.data.data;
     res.render("fixtures3.ejs", { data: result });
   } catch (error) {
@@ -221,6 +228,7 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsAS
 app.get("/fixtures4", async (req, res) => {
   try{
 const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+// const response = await axios.get(`https://api.apispreadsheets.com/data/3RU53Dl3YhgEHrZV/${fixtures4ApiKey}`);
     let result = response.data.data;
     res.render("fixtures4.ejs", { data: result });
   } catch (error) {
@@ -234,24 +242,12 @@ const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsAS
 app.get("/fixtures5", async (req, res) => {
   try{
 const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+// const response = await axios.get(`https://api.apispreadsheets.com/data/3RU53Dl3YhgEHrZV/${fixtures5ApiKey}`);
     let result = response.data.data;
     res.render("fixtures5.ejs", { data: result });
   } catch (error) {
     console.error("Failed to make request:", error.message);
     res.render("fixtures5.ejs", {
-      error: error.message,
-    });
-  }
-});
-
-app.get("/fixtures6", async (req, res) => {
-  try{
-const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
-    let result = response.data.data;
-    res.render("fixtures6.ejs", { data: result });
-  } catch (error) {
-    console.error("Failed to make request:", error.message);
-    res.render("fixtures6.ejs", {
       error: error.message,
     });
   }
@@ -291,7 +287,7 @@ app.post('/send',
 
 			const mail_option = {
 				from : `<${request.body.name}>`,
-				to : 'curledflyer98@gmail.com',
+				to : 'robin@holdnomore.co.uk',
 				subject : request.body.subject,
 				text :`
 Name: ${request.body.name}
