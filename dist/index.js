@@ -30,6 +30,7 @@ export const handler = serverless(app);
 const adminPass = process.env.AdminPassKey;
 const adminUser = process.env.adminUserKey;
 const transporterPass = process.env.transporterPassKey;
+const fixturesApiKey = process.env.fixturesApiKey;
 const div1ApiKey = process.env.div1ApiKey;
 const div2ApiKey = process.env.div2ApiKey;
 const div3ApiKey = process.env.div3ApiKey;
