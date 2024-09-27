@@ -96,7 +96,7 @@ app.get("/admin", (req, res) => {
 
 app.get("/", async (req, res) => {
   try{
- // const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
+ const response = await axios.get(`https://api.apispreadsheets.com/data/2mzjgIsASCtQpwoO/${fixturesApiKey}`);
         let result = response.data.data;
         res.render("index.ejs", { data: result });
       } catch (error) {
